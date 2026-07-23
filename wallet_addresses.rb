@@ -1,26 +1,5 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
-#
-# wallet_addresses.rb
-#
-# Derive the first receive address for several chains from a BIP-39 seed phrase.
-#
-#   Bitcoin   (BIP44  m/44'/0'/0'/0/0   P2PKH, base58check)
-#   Ethereum  (BIP44  m/44'/60'/0'/0/0  keccak256, EIP-55 checksum)
-#   Litecoin  (BIP44  m/44'/2'/0'/0/0   P2PKH, base58check)
-#   Dash      (BIP44  m/44'/5'/0'/0/0   P2PKH, base58check)
-#   Tron      (BIP44  m/44'/195'/0'/0/0 keccak256 + prefix 0x41, base58check)
-#   Solana    (SLIP-0010 ed25519  m/44'/501'/0'/0'  base58)
-#
-# Pure Ruby: only the stdlib (openssl + digest) is required. Base58, Keccak-256
-# and Ed25519 are implemented below so no gems need to be installed.
-#
-# Usage:
-#   ruby wallet_addresses.rb "word1 word2 ... word12" [passphrase]
-#   MNEMONIC="word1 ... word12" ruby wallet_addresses.rb
-#
-# WARNING: A seed phrase controls real funds. Run this only on an offline,
-# trusted machine. Never paste a phrase that secures assets into a shared shell.
 
 require "openssl"
 require "digest"
